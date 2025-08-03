@@ -192,7 +192,7 @@ namespace Adrenak.UniVoice.Networks {
 
                     // We initialize the new client/peer with some delay. A delay here MAY not be
                     // required but I faced some issues with immediate initialization earlier.
-                    SendToClientDelayed(connId, newClientPacket.Bytes, Channels.Reliable, 100);
+                    SendToClientDelayed(connId, newClientPacket.Bytes, Channels.Reliable, 500);
 
                     string log = $"Initializing new client with ID {connId}";
                     if (otherPeerIDs.Length > 0)
