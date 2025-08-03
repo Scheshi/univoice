@@ -234,7 +234,7 @@ namespace Adrenak.UniVoice.Networks {
         async void SendToClientDelayed(int peerID, byte[] bytes, int channel, int delayMS) {
             if(NetworkManager.singleton.mode == NetworkManagerMode.Host)
             {
-                while(NetworkServer.connections is not {Count: 0})
+                while(NetworkServer.connections is not {Count: > 0})
                 {
                     await Task.Yield();
                 }
