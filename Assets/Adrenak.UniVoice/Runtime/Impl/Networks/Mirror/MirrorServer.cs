@@ -232,6 +232,13 @@ namespace Adrenak.UniVoice.Networks {
         }
 
         async void SendToClientDelayed(int peerID, byte[] bytes, int channel, int delayMS) {
+            if(NetworkServer.activeHost)
+            {
+                while(NetworkServer.connections == null)
+                {
+                    await Task.Yield();
+                }
+            }
             await Task.Delay(delayMS);
             SendToClient(peerID, bytes, channel);
         }
